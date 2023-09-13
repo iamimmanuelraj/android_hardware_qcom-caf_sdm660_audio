@@ -90,8 +90,8 @@ ifneq ($(BOARD_OPENSOURCE_DIR), )
    LOCAL_C_INCLUDES += $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal \
                        $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal/audio_extn/
 else
-   LOCAL_C_INCLUDES += vendor/qcom/opensource/audio-hal/primary-hal/hal \
-                       vendor/qcom/opensource/audio-hal/primary-hal/hal/audio_extn/
+   LOCAL_C_INCLUDES += $(TARGET_HALS_PATH)/audio/hal \
+                       $(TARGET_HALS_PATH)/audio/hal/audio_extn/
 endif # BOARD_OPENSOURCE_DIR
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
@@ -216,8 +216,8 @@ ifneq ($(BOARD_OPENSOURCE_DIR), )
   LOCAL_C_INCLUDES += $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal \
                       $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal/audio_extn
 else
-  LOCAL_C_INCLUDES += vendor/qcom/opensource/audio-hal/primary-hal/hal \
-                      vendor/qcom/opensource/audio-hal/primary-hal/hal/audio_extn
+  LOCAL_C_INCLUDES += $(TARGET_HALS_PATH)/audio/hal \
+                      $(TARGET_HALS_PATH)/audio/hal/audio_extn
 endif # BOARD_OPENSOURCE_DIR
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
@@ -264,7 +264,7 @@ LOCAL_MODULE_OWNER := google
 LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_C_INCLUDES := \
-    hardware/qcom/audio/hal \
+    device/xiaomi/jasmine_sprout/qcom-caf/audio/hal \
     system/media/audio/include/system \
     $(call include-path-for, audio-effects)
 
